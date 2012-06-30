@@ -1,0 +1,9 @@
+
+    <resources>
+        <color name="TextBackground">#FFFFFF</color>
+        <color name="TextForeground">#000000</color>
+        <color name="BackgroundColor">#EA3200</color>
+        <color name="Black">#000000</color>
+        <color name="White">#FFFFFF</color>
+        <color name="Grey">#CCCCCC</color>
+    </resources>
