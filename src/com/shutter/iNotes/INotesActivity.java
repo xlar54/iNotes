@@ -327,6 +327,10 @@ public class INotesActivity extends Activity {
     public void refreshNotesList()
     {
     	File root = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Notes");
+    	
+    	if(!root.isDirectory() && !root.exists())
+    		root.mkdirs();
+    	
     	File[] files = root.listFiles();
     	
     	List<String> fileList = new ArrayList<String>();
