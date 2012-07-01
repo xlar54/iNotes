@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
@@ -47,11 +48,15 @@ public class INotesActivity extends Activity {
       setDeleteButtonEvent() ;
       setListViewSelectionEvent();
       setEmailButtonEvent();
-      
+            
       // Set focus on the edit text view
       TextView edit = (TextView)findViewById(R.id.editText1);
       edit.requestFocus();
       
+      // Set fonts
+      Typeface type = Typeface.createFromAsset(getAssets(), "fonts/marker-felt-thin.ttf");
+      edit.setTypeface(type);
+   
     }
     
     @Override
@@ -164,7 +169,7 @@ public class INotesActivity extends Activity {
 				
 				//Get the title of the item
 				Object o = parentView.getItemAtPosition(position);
-				String filename = o.toString();
+				String filename = o.toString().replace("...", "");
 				
 				currentFilename = filename;
 				
@@ -323,7 +328,6 @@ public class INotesActivity extends Activity {
 		return sdf.format(lastModDate);
     }
     
-    
     public void refreshNotesList()
     {
     	File root = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Notes");
@@ -340,14 +344,16 @@ public class INotesActivity extends Activity {
     	
     	for(File file : files)
     	{
-    		
-    		fileList.add(file.getName());
+    		fileList.add(file.getName()+"...");
     	}
     	
-  		ArrayAdapter<String> dirList = new ArrayAdapter<String>(this, R.layout.customlistview, fileList);
-  				
-  		ListView filesListView = (ListView)findViewById(R.id.listView1);
-		filesListView.setAdapter(dirList); 	
+    	ListView filesListView = (ListView)findViewById(R.id.listView1);
+    	
+  		//ArrayAdapter<String> dirList = new ArrayAdapter<String>(this, R.layout.customlistview, fileList);
+  		//filesListView.setAdapter(dirList); 	
+  		
+    	filesListView.setAdapter(new MyAdapter(this.getBaseContext(), fileList));
+	
 		
     }
 }

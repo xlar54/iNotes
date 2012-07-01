@@ -17,7 +17,9 @@
         android:gravity="top"
         android:inputType="textMultiLine"
         android:lineSpacingMultiplier="1.05"
-        android:textColor="@color/Black" >
+        android:textColor="@color/Black"
+        android:textCursorDrawable="@null"
+         >
 
     <requestFocus></requestFocus>
     </EditText>
@@ -43,8 +45,7 @@
         android:layout_y="104dp"
         android:background="@color/TextBackground"
         android:listSelector="@drawable/list_selector"
-         >
-
+        >
     </ListView>
 
     <EditText
