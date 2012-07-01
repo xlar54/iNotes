@@ -85,4 +85,13 @@
         android:background="@null"
         android:src="@drawable/mail_note" />
 
+    <EditText
+        android:id="@+id/txtNoteCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="103dp"
+        android:layout_y="18dp"
+        android:ems="10"
+        android:gravity="center_horizontal" />
+
 </AbsoluteLayout>

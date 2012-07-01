@@ -353,6 +353,10 @@ public class INotesActivity extends Activity {
   		//filesListView.setAdapter(dirList); 	
   		
     	filesListView.setAdapter(new MyAdapter(this.getBaseContext(), fileList));
+    	
+    	TextView t = (TextView)findViewById(R.id.txtNoteCount);
+    	t.setTextColor(R.color.Black);
+    	t.setText(Integer.toString(files.length) + " Notes");
 	
 		
     }
